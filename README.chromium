@@ -1,7 +1,9 @@
 Name: Freetype
 URL: http://source.android.com
 Version: 0c30ba1342318e73197db7dd52dcca4b6d4bf06d
-License: BSD
+License: Custom license "inspired by the BSD, Artistic, and IJG (Independent
+         JPEG Group) licenses"
+License File: NOTICE
 Security Critical: no
 
 Description:
