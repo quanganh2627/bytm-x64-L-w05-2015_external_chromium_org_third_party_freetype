@@ -5,6 +5,7 @@ License: Custom license "inspired by the BSD, Artistic, and IJG (Independent
          JPEG Group) licenses"
 License File: NOTICE
 Security Critical: no
+License Android Compatibile: yes
 
 Description:
 This package was copied from Android source tree and just used for Android.
