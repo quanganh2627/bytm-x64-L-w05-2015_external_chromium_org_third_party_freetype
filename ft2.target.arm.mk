@@ -24,6 +24,7 @@ GYP_COPIED_SOURCE_ORIGIN_DIRS :=
 LOCAL_SRC_FILES := \
 	third_party/freetype/src/base/ftbbox.c \
 	third_party/freetype/src/base/ftbitmap.c \
+	third_party/freetype/src/base/ftfstype.c \
 	third_party/freetype/src/base/ftglyph.c \
 	third_party/freetype/src/base/ftlcdfil.c \
 	third_party/freetype/src/base/ftstroke.c \
@@ -32,6 +33,7 @@ LOCAL_SRC_FILES := \
 	third_party/freetype/src/base/ftsystem.c \
 	third_party/freetype/src/base/ftinit.c \
 	third_party/freetype/src/base/ftgasp.c \
+	third_party/freetype/src/base/fttype1.c \
 	third_party/freetype/src/raster/raster.c \
 	third_party/freetype/src/sfnt/sfnt.c \
 	third_party/freetype/src/smooth/smooth.c \
