@@ -13,6 +13,7 @@
           'sources': [
             'src/base/ftbbox.c',
             'src/base/ftbitmap.c',
+            'src/base/ftfstype.c',
             'src/base/ftglyph.c',
             'src/base/ftlcdfil.c',
             'src/base/ftstroke.c',
@@ -21,6 +22,7 @@
             'src/base/ftsystem.c',
             'src/base/ftinit.c',
             'src/base/ftgasp.c',
+            'src/base/fttype1.c',
             'src/raster/raster.c',
             'src/sfnt/sfnt.c',
             'src/smooth/smooth.c',
