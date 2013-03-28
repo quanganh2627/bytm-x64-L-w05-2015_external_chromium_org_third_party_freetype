@@ -24,6 +24,7 @@ GYP_COPIED_SOURCE_ORIGIN_DIRS :=
 LOCAL_SRC_FILES := \
 	third_party/freetype/src/base/ftbbox.c \
 	third_party/freetype/src/base/ftbitmap.c \
+	third_party/freetype/src/base/ftfstype.c \
 	third_party/freetype/src/base/ftglyph.c \
 	third_party/freetype/src/base/ftlcdfil.c \
 	third_party/freetype/src/base/ftstroke.c \
@@ -32,6 +33,7 @@ LOCAL_SRC_FILES := \
 	third_party/freetype/src/base/ftsystem.c \
 	third_party/freetype/src/base/ftinit.c \
 	third_party/freetype/src/base/ftgasp.c \
+	third_party/freetype/src/base/fttype1.c \
 	third_party/freetype/src/raster/raster.c \
 	third_party/freetype/src/sfnt/sfnt.c \
 	third_party/freetype/src/smooth/smooth.c \
@@ -44,6 +46,8 @@ LOCAL_SRC_FILES := \
 
 # Flags passed to both C and C++ files.
 MY_CFLAGS := \
+	-fstack-protector \
+	--param=ssp-buffer-size=4 \
 	-fno-exceptions \
 	-fno-strict-aliasing \
 	-Wno-unused-parameter \
@@ -52,15 +56,9 @@ MY_CFLAGS := \
 	-pipe \
 	-fPIC \
 	-Wno-format \
-	-mthumb \
-	-march=armv7-a \
-	-mtune=cortex-a8 \
-	-mfloat-abi=softfp \
-	-mfpu=vfpv3-d16 \
 	-fno-tree-sra \
 	-fuse-ld=gold \
 	-Wno-psabi \
-	-mthumb-interwork \
 	-ffunction-sections \
 	-funwind-tables \
 	-g \
@@ -68,16 +66,14 @@ MY_CFLAGS := \
 	-fno-short-enums \
 	-finline-limit=64 \
 	-Wa,--noexecstack \
-	-Wno-error=extra \
-	-Wno-error=ignored-qualifiers \
-	-Wno-error=type-limits \
-	-Wno-error=non-virtual-dtor \
-	-Wno-error=sign-promo \
-	-Wno-error=address \
-	-Wno-error=format-security \
-	-Wno-error=non-virtual-dtor \
-	-Wno-error=return-type \
-	-Wno-error=sequence-point \
+	-U_FORTIFY_SOURCE \
+	-Wno-extra \
+	-Wno-ignored-qualifiers \
+	-Wno-type-limits \
+	-Wno-address \
+	-Wno-format-security \
+	-Wno-return-type \
+	-Wno-sequence-point \
 	-Os \
 	-g \
 	-fomit-frame-pointer \
@@ -87,7 +83,9 @@ MY_CFLAGS := \
 MY_CFLAGS_C :=
 
 MY_DEFS := \
+	'-DUSE_SKIA' \
 	'-D_FILE_OFFSET_BITS=64' \
+	'-DUSE_LINUX_BREAKPAD' \
 	'-DNO_TCMALLOC' \
 	'-DDISABLE_NACL' \
 	'-DCHROMIUM_BUILD' \
@@ -97,15 +95,14 @@ MY_DEFS := \
 	'-DENABLE_GPU=1' \
 	'-DUSE_OPENSSL=1' \
 	'-DENABLE_EGLIMAGE=1' \
-	'-DUSE_SKIA=1' \
+	'-DENABLE_LANGUAGE_DETECTION=1' \
 	'-DFT2_BUILD_LIBRARY' \
 	'-DDARWIN_NO_CARBON' \
 	'-DANDROID' \
 	'-D__GNU_SOURCE=1' \
 	'-DUSE_STLPORT=1' \
 	'-D_STLP_USE_PTR_SPECIALIZATIONS=1' \
-	'-DCHROME_SYMBOLS_ID=""' \
-	'-DANDROID_UPSTREAM_BRINGUP=1' \
+	'-DCHROME_BUILD_ID=""' \
 	'-DDYNAMIC_ANNOTATIONS_ENABLED=1' \
 	'-DWTF_USE_DYNAMIC_ANNOTATIONS=1' \
 	'-D_DEBUG'
@@ -129,11 +126,16 @@ LOCAL_CPPFLAGS := \
 	-fvisibility-inlines-hidden \
 	-Wno-deprecated \
 	-Wno-abi \
-	-Wno-error=c++0x-compat
+	-Wno-error=c++0x-compat \
+	-Wno-non-virtual-dtor \
+	-Wno-sign-promo \
+	-Wno-non-virtual-dtor
 
 ### Rules for final target.
 
 LOCAL_LDFLAGS := \
+	-Wl,-z,now \
+	-Wl,-z,relro \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-Wl,-z,relro \
