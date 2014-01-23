@@ -28,12 +28,12 @@ LOCAL_SRC_FILES := \
 	third_party/freetype/src/base/ftglyph.c \
 	third_party/freetype/src/base/ftlcdfil.c \
 	third_party/freetype/src/base/ftstroke.c \
+	third_party/freetype/src/base/fttype1.c \
 	third_party/freetype/src/base/ftxf86.c \
 	third_party/freetype/src/base/ftbase.c \
 	third_party/freetype/src/base/ftsystem.c \
 	third_party/freetype/src/base/ftinit.c \
 	third_party/freetype/src/base/ftgasp.c \
-	third_party/freetype/src/base/fttype1.c \
 	third_party/freetype/src/raster/raster.c \
 	third_party/freetype/src/sfnt/sfnt.c \
 	third_party/freetype/src/smooth/smooth.c \
@@ -101,6 +101,9 @@ MY_DEFS_Debug := \
 	'-DENABLE_MANAGED_USERS=1' \
 	'-DFT2_BUILD_LIBRARY' \
 	'-DDARWIN_NO_CARBON' \
+	'-DCHROME_PNG_WRITE_SUPPORT' \
+	'-DPNG_USER_CONFIG' \
+	'-DCHROME_PNG_READ_PACK_SUPPORT' \
 	'-DANDROID' \
 	'-D__GNU_SOURCE=1' \
 	'-DUSE_STLPORT=1' \
@@ -115,6 +118,8 @@ MY_DEFS_Debug := \
 LOCAL_C_INCLUDES_Debug := \
 	$(LOCAL_PATH)/third_party/freetype/build \
 	$(LOCAL_PATH)/third_party/freetype/include \
+	$(LOCAL_PATH)/third_party/libpng \
+	$(LOCAL_PATH)/third_party/zlib \
 	$(PWD)/frameworks/wilhelm/include \
 	$(PWD)/bionic \
 	$(PWD)/external/stlport/stlport
@@ -191,6 +196,9 @@ MY_DEFS_Release := \
 	'-DENABLE_MANAGED_USERS=1' \
 	'-DFT2_BUILD_LIBRARY' \
 	'-DDARWIN_NO_CARBON' \
+	'-DCHROME_PNG_WRITE_SUPPORT' \
+	'-DPNG_USER_CONFIG' \
+	'-DCHROME_PNG_READ_PACK_SUPPORT' \
 	'-DANDROID' \
 	'-D__GNU_SOURCE=1' \
 	'-DUSE_STLPORT=1' \
@@ -205,6 +213,8 @@ MY_DEFS_Release := \
 LOCAL_C_INCLUDES_Release := \
 	$(LOCAL_PATH)/third_party/freetype/build \
 	$(LOCAL_PATH)/third_party/freetype/include \
+	$(LOCAL_PATH)/third_party/libpng \
+	$(LOCAL_PATH)/third_party/zlib \
 	$(PWD)/frameworks/wilhelm/include \
 	$(PWD)/bionic \
 	$(PWD)/external/stlport/stlport
