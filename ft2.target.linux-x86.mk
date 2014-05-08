@@ -100,6 +100,8 @@ MY_DEFS_Debug := \
 	'-DCLD_VERSION=1' \
 	'-DENABLE_PRINTING=1' \
 	'-DENABLE_MANAGED_USERS=1' \
+	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
+	'-DSPDY_PROXY_AUTH_ORIGIN="https://proxy.googlezip.net:443/"' \
 	'-DFT2_BUILD_LIBRARY' \
 	'-DDARWIN_NO_CARBON' \
 	'-DCHROME_PNG_WRITE_SUPPORT' \
@@ -194,6 +196,8 @@ MY_DEFS_Release := \
 	'-DCLD_VERSION=1' \
 	'-DENABLE_PRINTING=1' \
 	'-DENABLE_MANAGED_USERS=1' \
+	'-DDATA_REDUCTION_FALLBACK_HOST="http://compress.googlezip.net:80/"' \
+	'-DSPDY_PROXY_AUTH_ORIGIN="https://proxy.googlezip.net:443/"' \
 	'-DFT2_BUILD_LIBRARY' \
 	'-DDARWIN_NO_CARBON' \
 	'-DCHROME_PNG_WRITE_SUPPORT' \
